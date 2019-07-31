@@ -25,16 +25,16 @@ def create_line(coord,f,w):
     
     if coord[1] == coord[3]:            #vertical line check
         length = int(coord[4])-int(coord[2])+1
-        xy = int(coord[2])*(int(w)+4)+int(coord[1])
+        xy = int(coord[2])*(int(w)+3)+int(coord[1])
         f.seek(xy)
         for i in range(length):
             f.write('X')
-            xy+=int(w)+4
+            xy+=int(w)+3
             f.seek(xy)
         return 'vertical'
     elif coord[2] == coord[4]:              #horizontal line check
         length = int(coord[3])-int(coord[1])+1
-        xy = int(coord[2])*(int(w)+4)+int(coord[1])
+        xy = int(coord[2])*(int(w)+3)+int(coord[1])
         f.seek(xy)
         f.write(length*'X')
         return 'horizontal'
@@ -45,16 +45,16 @@ def create_rectangle(coord,f,w):
     
     length = int(coord[3])-int(coord[1])+1
     height = int(coord[4])-int(coord[2])
-    xy = int(coord[2])*(int(w)+4)+int(coord[1])
+    xy = int(coord[2])*(int(w)+3)+int(coord[1])
     f.seek(xy)
     f.write(length*'X')
     f.seek(xy)
     for i in range(height):
-            xy+=int(w)+4
+            xy+=int(w)+3
             f.seek(xy)
             f.write('X'+(length-2)*' '+'X')
             
-    xy = int(coord[4])*(int(w)+4)+int(coord[1])
+    xy = int(coord[4])*(int(w)+3)+int(coord[1])
     f.seek(xy)
     f.write(length*'X')
     return True
